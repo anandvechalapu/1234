@@ -1,28 +1,31 @@
-·       User should be able to access the sub functionalities like create, edit, view and download.·       User should be able to download the branches as format of .csv file.·       No duplicate records should be created.·       All the fields should have validations.
+·       Ability to access the sub screens like create, edit, view and download function.·       Ability to download the branches as format of .csv file.·       Proper validation of the fields like name, number, address etc.
 
-import org.springframework.data.repository.CrudRepository;
+package com.ctepl.anand.repository;
 
-public interface BranchesRepository extends CrudRepository<Branches, String> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-    Branches findByWholesalerAndNameAndNumber(String wholesaler, String name, String number);
+import com.ctepl.anand.model.Branches;
 
-    List<Branches> findByWholesalerAndNfrnRegionAndTvRegionAndAatSatValues(String wholesaler, String nfrnRegion, String tvRegion, String aatSatValues);
+@Repository
+public interface BranchesRepository extends JpaRepository<Branches, Long> {
+	
+	Branches findByWholesalerAndName(String wholesaler, String name);
+	
+	Branches findByNumberAndWholesaler(String number, String wholesaler);
+	
+	Branches findByNameAndWholesaler(String name, String wholesaler);
+	
+	void deleteByNameAndWholesaler(String name, String wholesaler);
+	
+	void deleteByNumberAndWholesaler(String number, String wholesaler);
+	
+	boolean existsByNameAndWholesaler(String name, String wholesaler);
+	
+	boolean existsByNumberAndWholesaler(String number, String wholesaler);
+	
+	Branches findByName(String name);
+	
+	Branches findByNumber(String number);
 
-    List<Branches> findByActive(String active);
-
-    List<Branches> findByDateCreated(String dateCreated);
-
-    List<Branches> findByLastModified(String lastModified);
-
-    // Save Method
-    Branches save(Branches branches);
-    
-    // Delete Method
-    void delete(Branches branches);
-    
-    // View Method
-    Branches view(Branches branches);
-    
-    // Download Method
-    void download(Branches branches);
 }
