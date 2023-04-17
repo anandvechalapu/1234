@@ -1,59 +1,89 @@
+package com.ctepl.anand.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ctepl.anand.model.Users;
+import com.ctepl.anand.repository.UserRepository;
+
 @Service
 public class UserService {
-
-	@Autowired
-	private UserRepository userRepository;
 	
-	public void addUser(User user) {
-		//validate fields and add the user
-		userRepository.save(user);
-	}
-
-	public void editUser(User user) {
-		//validate fields and edit the user
-		userRepository.save(user);
-	}
-
-	public void deleteUser(User user) {
-		//validate fields and delete the user
-		userRepository.delete(user);
-	}
-
-	public User searchUser(String userName) {
-		//validate fields and search the user
-		Optional<User> user = userRepository.findByUserName(userName);
-		if(user.isPresent()) {
-			return user.get();
-		}
-		return null;
-	}
-
-	public List<User> viewUserList() {
-		//validate fields and view the user list
+	@Autowired
+	UserRepository userRepository;
+	
+	public List<Users> getAllUsers(){
 		return userRepository.findAll();
 	}
-
-	public void downloadUserList() {
-		//validate fields and download the user list in .csv format
-		List<User> userList = userRepository.findAll();
-		//write the user list to .csv file
+	
+	public Users findUserByUserName(String userName){
+		return userRepository.findByUserName(userName);
 	}
-
-	public void moveUserToArchivedData(User user) {
-		//validate fields and move the user to archived data
-		user.setActive(false);
+	
+	public Users findUserByPassword(String password){
+		return userRepository.findByPassword(password);
+	}
+	
+	public Users findUserByLevel(String level){
+		return userRepository.findByLevel(level);
+	}
+	
+	public Users findUserByParentType(String parentType){
+		return userRepository.findByParentType(parentType);
+	}
+	
+	public Users findUserByWholesaler(String wholesaler){
+		return userRepository.findByWholesaler(wholesaler);
+	}
+	
+	public Users findUserByBranch(String branch){
+		return userRepository.findByBranch(branch);
+	}
+	
+	public Users findUserByFirstName(String firstName){
+		return userRepository.findByFirstName(firstName);
+	}
+	
+	public Users findUserByLastName(String lastName){
+		return userRepository.findByLastName(lastName);
+	}
+	
+	public Users findUserByCompany(String company){
+		return userRepository.findByCompany(company);
+	}
+	
+	public Users findUserByPostcode(String postcode){
+		return userRepository.findByPostcode(postcode);
+	}
+	
+	public Users findUserByTelephoneNo(String telephoneNo){
+		return userRepository.findByTelephoneNo(telephoneNo);
+	}
+	
+	public Users findUserByEmailAddress(String emailAddress){
+		return userRepository.findByEmailAddress(emailAddress);
+	}
+	
+	public Users findUserByDateCreated(String dateCreated) {
+		return userRepository.findByDateCreated(dateCreated);
+	}
+	
+	public Users findUserByLastModified(String lastModified) {
+		return userRepository.findByLastModified(lastModified);
+	}
+	
+	public void editUser(Users user) {
 		userRepository.save(user);
 	}
-
-	public void activateUser(User user) {
-		//validate fields and activate the user
-		user.setActive(true);
-		userRepository.save(user);
+	
+	public void viewUser(String userName) {
+		Users user = userRepository.findByUserName(userName);
+		String userDetails = user.getUserName() + " " + user.getPassword() + " " + user.getLevel() + " " + user.getParentType() + " " + user.getWholesaler() + " " + user.getBranch() + " " + user.getFirstName() + " " + user.getLastName() + " " + user.getCompany() + " " + user.getPostcode() + " " + user.getTelephoneNo() + " " + user.getEmailAddress() + " " + user.getDateCreated() + " " + user.getLastModified();
+		System.out.println(userDetails);
 	}
-
-	public List<User> viewPaginatedArchivedUsers() {
-		//validate fields and view paginated archived users
-		return userRepository.findByParentType("U");
-	}
-
-}
+	
+	public void downloadData(String userName) {
+		Users user = userRepository.findByUserName(userName);
+		String userDetails = user.getUserName() + " " + user.getPassword() + " " + user.getLevel() + " " + user.getParentType() + " " + user.getWholesaler() + " " + user.getBranch() + " " + user.getFirstName() + " " + user.getLastName() + " " + user.getCompany() + " " + user.getPostcode() + " " + user.getTelephoneNo() + " " + user.getEmailAddress() + " " + user.getDateCreated() + " " + user.getLastMod
