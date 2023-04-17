@@ -1,68 +1,71 @@
-public class Branches {
-    private String wholesaler;
-    private String name;
-    private String number;
-    private String nfrnRegion;
-    private String tvRegion;
-    private String aatSatValues;
-    private String active;
-    private String dateCreated;
-    private String lastModified;
+package com.ctepl.anand.model;
 
-    // Getters and Setters
-    public String getWholesaler() {
-        return wholesaler;
-    }
-    public void setWholesaler(String wholesaler) {
-        this.wholesaler = wholesaler;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getNumber() {
-        return number;
-    }
-    public void setNumber(String number) {
-        this.number = number;
-    }
-    public String getNfrnRegion() {
-        return nfrnRegion;
-    }
-    public void setNfrnRegion(String nfrnRegion) {
-        this.nfrnRegion = nfrnRegion;
-    }
-    public String getTvRegion() {
-        return tvRegion;
-    }
-    public void setTvRegion(String tvRegion) {
-        this.tvRegion = tvRegion;
-    }
-    public String getAatSatValues() {
-        return aatSatValues;
-    }
-    public void setAatSatValues(String aatSatValues) {
-        this.aatSatValues = aatSatValues;
-    }
-    public String getActive() {
-        return active;
-    }
-    public void setActive(String active) {
-        this.active = active;
-    }
-    public String getDateCreated() {
-        return dateCreated;
-    }
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-    public String getLastModified() {
-        return lastModified;
-    }
-    public void setLastModified(String lastModified) {
-        this.lastModified = lastModified;
-    }
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="branches")
+public class Branches {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotNull
+	private String name;
+	
+	@NotNull
+	private String number;
+	
+	@NotNull
+	private String wholesaler;
+	
+	public Branches() {
+		
+	}
+	
+	public Branches(String name, String number, String wholesaler) {
+		this.name = name;
+		this.number = number;
+		this.wholesaler = wholesaler;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public String getWholesaler() {
+		return wholesaler;
+	}
+
+	public void setWholesaler(String wholesaler) {
+		this.wholesaler = wholesaler;
+	}
+	
+	
 
 }
