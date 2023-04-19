@@ -1,98 +1,90 @@
 package com.ctepl.anand.controller;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
-import com.ctepl.anand.entity.AdminSurvey;
-import com.ctepl.anand.entity.Question;
-import com.ctepl.anand.entity.User;
-import com.ctepl.anand.service.AdminSurveyService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/admin-survey")
-public class AdminSurveyController {
+import com.ctepl.anand.model.AdminSurvey;
+import com.ctepl.anand.service.AdminSurveyService;
 
+@RestController
+public class AdminSurveyController {
+    
     @Autowired
     private AdminSurveyService adminSurveyService;
 
-    @GetMapping("/by-domain")
-    public Optional<AdminSurvey> findByDomain(String domain) {
+    @GetMapping("/adminSurvey/byDomain")
+    public AdminSurvey findByDomain(@RequestParam String domain) {
         return adminSurveyService.findByDomain(domain);
     }
 
-    @GetMapping("/by-status")
-    public Optional<AdminSurvey> findByStatus(String status) {
+    @GetMapping("/adminSurvey/byTitleAndDescription")
+    public AdminSurvey findByTitleAndDescription(@RequestParam String title, @RequestParam String description) {
+        return adminSurveyService.findByTitleAndDescription(title, description);
+    }
+
+    @GetMapping("/adminSurvey/byDelayTimeInSeconds")
+    public AdminSurvey findByDelayTimeInSeconds(@RequestParam int delayTimeInSeconds) {
+        return adminSurveyService.findByDelayTimeInSeconds(delayTimeInSeconds);
+    }
+
+    @GetMapping("/adminSurvey/byStatus")
+    public AdminSurvey findByStatus(@RequestParam String status) {
         return adminSurveyService.findByStatus(status);
     }
 
-    @GetMapping("/by-state")
-    public Optional<AdminSurvey> findBySurveyState(String surveyState) {
+    @GetMapping("/adminSurvey/bySurveyState")
+    public AdminSurvey findBySurveyState(@RequestParam String surveyState) {
         return adminSurveyService.findBySurveyState(surveyState);
     }
 
-    @GetMapping("/by-page-name-or-location")
-    public Optional<AdminSurvey> findByPageNameOrLocation(String pageNameOrLocation) {
+    @GetMapping("/adminSurvey/byPageNameOrLocation")
+    public AdminSurvey findByPageNameOrLocation(@RequestParam String pageNameOrLocation) {
         return adminSurveyService.findByPageNameOrLocation(pageNameOrLocation);
     }
 
-    @GetMapping("/by-target-users")
-    public Optional<AdminSurvey> findByTargetUsers(String targetUsers) {
+    @GetMapping("/adminSurvey/byStartDateAndEndDate")
+    public AdminSurvey findByStartDateAndEndDate(@RequestParam String startDate, @RequestParam String endDate) {
+        return adminSurveyService.findByStartDateAndEndDate(startDate, endDate);
+    }
+
+    @GetMapping("/adminSurvey/byTargetUsers")
+    public AdminSurvey findByTargetUsers(@RequestParam String targetUsers) {
         return adminSurveyService.findByTargetUsers(targetUsers);
     }
 
-    @GetMapping("/by-specialty")
-    public Optional<AdminSurvey> findBySpecialty(String specialty) {
+    @GetMapping("/adminSurvey/byCriteria")
+    public AdminSurvey findByCriteria(@RequestParam String criteria) {
+        return adminSurveyService.findByCriteria(criteria);
+    }
+
+    @GetMapping("/adminSurvey/bySpecialty")
+    public AdminSurvey findBySpecialty(@RequestParam String specialty) {
         return adminSurveyService.findBySpecialty(specialty);
     }
 
-    @GetMapping("/by-preferences")
-    public Optional<AdminSurvey> findByPreferences(String preferences) {
+    @GetMapping("/adminSurvey/byPreferences")
+    public AdminSurvey findByPreferences(@RequestParam String preferences) {
         return adminSurveyService.findByPreferences(preferences);
     }
 
-    @GetMapping("/by-country")
-    public Optional<AdminSurvey> findByCountry(String country) {
+    @GetMapping("/adminSurvey/byCountry")
+    public AdminSurvey findByCountry(@RequestParam String country) {
         return adminSurveyService.findByCountry(country);
     }
 
-    @GetMapping("/by-region-and-city")
-    public Optional<AdminSurvey> findByRegionAndCity(
-        @RequestParam("region") String region, 
-        @RequestParam("city") String city
-    ) {
-        return adminSurveyService.findByRegionAndCity(region, city);
+    @GetMapping("/adminSurvey/byRegionAndCityCombination")
+    public AdminSurvey findByRegionAndCityCombination(@RequestParam String region, @RequestParam String city) {
+        return adminSurveyService.findByRegionAndCityCombination(region, city);
     }
 
-    @GetMapping("/by-specific-users")
-    public Optional<AdminSurvey> findBySpecificUsers(List<User> specificUsers) {
-        return adminSurveyService.findBySpecificUsers(specificUsers);
+    @GetMapping("/adminSurvey/bySpecificUsersList")
+    public AdminSurvey findBySpecificUsersList(@RequestParam String specificUsersList) {
+        return adminSurveyService.findBySpecificUsersList(specificUsersList);
     }
 
-    @GetMapping("/by-questions-title-and-answer-type")
-    public Optional<AdminSurvey> findByQuestionsTitleAndAnswerType(
-        @RequestParam("title") String title, 
-        @RequestParam("answerType") String answerType
-    ) {
-        return adminSurveyService.findByQuestionsTitleAndAnswerType(title, answerType);
-    }
-
-    @GetMapping("/by-rating-range")
-    public Optional<AdminSurvey> findByRatingRange(
-        @RequestParam("start") int start, 
-        @RequestParam("end") int end
-    ) {
-        return adminSurveyService.findByRatingRange(start, end);
-    }
-
-    @GetMapping("/by-start-date-and-end-date")
-    public Optional<AdminSurvey> findByStartDateAndEndDate(
-        @RequestParam("startDate
+    @GetMapping("/adminSurvey/byTitleAndAnswerType")
+    public AdminSurvey findByTitleAndAnswerType(@RequestParam String title, @RequestParam String

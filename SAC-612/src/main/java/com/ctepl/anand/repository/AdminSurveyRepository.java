@@ -1,19 +1,41 @@
-@Repository
+package com.ctepl.anand.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 public interface AdminSurveyRepository extends JpaRepository<AdminSurvey, Long> {
 
-    Optional<AdminSurvey> findByDomain(String domain);
-    Optional<AdminSurvey> findByStatus(String status);
-    Optional<AdminSurvey> findBySurveyState(String surveyState);
-    Optional<AdminSurvey> findByPageNameOrLocation(String pageNameOrLocation);
-    Optional<AdminSurvey> findByTargetUsers(String targetUsers);
-    Optional<AdminSurvey> findBySpecialty(String specialty);
-    Optional<AdminSurvey> findByPreferences(String preferences);
-    Optional<AdminSurvey> findByCountry(String country);
-    Optional<AdminSurvey> findByRegionAndCity(String region, String city);
-    Optional<AdminSurvey> findBySpecificUsers(List<User> specificUsers);
-    Optional<AdminSurvey> findByQuestionsTitleAndAnswerType(String title, String answerType);
-    Optional<AdminSurvey> findByRatingRange(int start, int end);
-    Optional<AdminSurvey> findByStartDateAndEndDate(Date startDate, Date endDate);
-    void deleteBySurveyState(String surveyState);
-    Optional<AdminSurvey> findByUserResponseOnQuestions(List<Question> questions);
+    AdminSurvey findByDomain(String domain);
+
+    AdminSurvey findByTitleAndDescription(String title, String description);
+
+    AdminSurvey findByDelayTimeInSeconds(int delayTimeInSeconds);
+
+    AdminSurvey findByStatus(String status);
+
+    AdminSurvey findBySurveyState(String surveyState);
+
+    AdminSurvey findByPageNameOrLocation(String pageNameOrLocation);
+
+    AdminSurvey findByStartDateAndEndDate(String startDate, String endDate);
+
+    AdminSurvey findByTargetUsers(String targetUsers);
+
+    AdminSurvey findByCriteria(String criteria);
+
+    AdminSurvey findBySpecialty(String specialty);
+
+    AdminSurvey findByPreferences(String preferences);
+
+    AdminSurvey findByCountry(String country);
+
+    AdminSurvey findByRegionAndCityCombination(String region, String city);
+
+    AdminSurvey findBySpecificUsersList(String specificUsersList);
+
+    AdminSurvey findByTitleAndAnswerType(String title, String answerType);
+
+    AdminSurvey findByRatingRangeBetweenZeroAndFive(int ratingRange);
+
+    AdminSurvey findByUserResponseOnQuestions(String userResponseOnQuestions);
+
 }
