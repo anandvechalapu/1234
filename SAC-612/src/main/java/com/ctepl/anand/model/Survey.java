@@ -1,36 +1,61 @@
 package com.ctepl.anand.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "survey")
 public class Survey {
-
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String domain;
+    @Column(name = "title")
     private String title;
-    private int delayTime;
+
+    @Column(name = "domain")
+    private String domain;
+
+    @Column(name = "status")
     private String status;
+
+    @Column(name = "survey_state")
     private String surveyState;
+
+    @Column(name = "page_name_or_location")
     private String pageNameOrLocation;
+
+    @Column(name = "start_date")
     private String startDate;
+
+    @Column(name = "end_date")
     private String endDate;
+
+    @Column(name = "target_users")
     private String targetUsers;
-    private String excludingUsers;
+
+    @Column(name = "specialty")
     private String specialty;
+
+    @Column(name = "preferences")
     private String preferences;
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "region")
     private String region;
+
+    @Column(name = "city")
     private String city;
-    private String manuallySelectingUsers;
-    private String questionTitle;
+
+    @Column(name = "user_id")
+    private String userId;
+
+    @Column(name = "answer_type")
     private String answerType;
-    private int ratingRange;
+
+    @Column(name = "rating")
+    private int rating;
 
     public Long getId() {
         return id;
@@ -38,14 +63,6 @@ public class Survey {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getDomain() {
-        return domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
     }
 
     public String getTitle() {
@@ -56,12 +73,12 @@ public class Survey {
         this.title = title;
     }
 
-    public int getDelayTime() {
-        return delayTime;
+    public String getDomain() {
+        return domain;
     }
 
-    public void setDelayTime(int delayTime) {
-        this.delayTime = delayTime;
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 
     public String getStatus() {
@@ -112,14 +129,6 @@ public class Survey {
         this.targetUsers = targetUsers;
     }
 
-    public String getExcludingUsers() {
-        return excludingUsers;
-    }
-
-    public void setExcludingUsers(String excludingUsers) {
-        this.excludingUsers = excludingUsers;
-    }
-
     public String getSpecialty() {
         return specialty;
     }
@@ -160,22 +169,17 @@ public class Survey {
         this.city = city;
     }
 
-    public String getManuallySelectingUsers() {
-        return manuallySelectingUsers;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setManuallySelectingUsers(String manuallySelectingUsers) {
-        this.manuallySelectingUsers = manuallySelectingUsers;
-    }
-
-    public String getQuestionTitle() {
-        return questionTitle;
-    }
-
-    public void setQuestionTitle(String questionTitle) {
-        this.questionTitle = questionTitle;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getAnswerType() {
         return answerType;
-   
+    }
+
+    public void setAnswerType(String answerType) {
+        this.answerType = answer

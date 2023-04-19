@@ -12,107 +12,86 @@ import com.ctepl.anand.repository.SurveyRepository;
 public class SurveyService {
 
     @Autowired
-    private SurveyRepository surveyRepository;
+    SurveyRepository surveyRepository;
 
-    // Method to save survey details
-    public void saveSurvey(Survey survey) {
-        surveyRepository.save(survey);
-    }
-
-    // Method to get all survey details
-    public List<Survey> getAllSurveys() {
-        return surveyRepository.findAll();
-    }
-
-    // Method to get survey details by id
-    public Survey getSurveyById(long id) {
+    // Get survey by id
+    public Survey findById(long id) {
         return surveyRepository.findById(id);
     }
 
-    // Method to get survey details by domain
-    public Survey getSurveyByDomain(String domain) {
-        return surveyRepository.findByDomain(domain);
-    }
-
-    // Method to get survey details by title
-    public Survey getSurveyByTitle(String title) {
+    // Get survey by title
+    public Survey findByTitle(String title) {
         return surveyRepository.findByTitle(title);
     }
 
-    // Method to get survey details by delay time in seconds
-    public Survey getSurveyByDelayTime(int delayTime) {
-        return surveyRepository.findByDelayTime(delayTime);
+    // Get survey by Domain
+    public Survey findByDomain(String domain) {
+        return surveyRepository.findByDomain(domain);
     }
 
-    // Method to get survey details by status
-    public Survey getSurveyByStatus(String status) {
+    // Get survey by Status
+    public Survey findByStatus(String status) {
         return surveyRepository.findByStatus(status);
     }
 
-    // Method to get survey details by survey state
-    public Survey getSurveyBySurveyState(String surveyState) {
+    // Get survey by Survey State
+    public Survey findBySurveyState(String surveyState) {
         return surveyRepository.findBySurveyState(surveyState);
     }
 
-    // Method to get survey details by page name or location
-    public Survey getSurveyByPageNameOrLocation(String pageNameOrLocation) {
+    // Get survey by Page Name or Location
+    public Survey findByPageNameOrLocation(String pageNameOrLocation) {
         return surveyRepository.findByPageNameOrLocation(pageNameOrLocation);
     }
 
-    // Method to get survey details by start date
-    public Survey getSurveyByStartDate(String startDate) {
-        return surveyRepository.findByStartDate(startDate);
+    // Get survey by Start and End dates
+    public Survey findByStartDateAndEndDate(String startDate, String endDate) {
+        return surveyRepository.findByStartDateAndEndDate(startDate, endDate);
     }
 
-    // Method to get survey details by end date
-    public Survey getSurveyByEndDate(String endDate) {
-        return surveyRepository.findByEndDate(endDate);
-    }
-
-    // Method to get survey details by target users
-    public Survey getSurveyByTargetUsers(String targetUsers) {
+    // Get survey by Target Users
+    public Survey findByTargetUsers(String targetUsers) {
         return surveyRepository.findByTargetUsers(targetUsers);
     }
 
-    // Method to get survey details by excluding users
-    public Survey getSurveyByExcludingUsers(String excludingUsers) {
-        return surveyRepository.findByExcludingUsers(excludingUsers);
-    }
-
-    // Method to get survey details by specialty
-    public Survey getSurveyBySpecialty(String specialty) {
+    // Get survey by Specialty
+    public Survey findBySpecialty(String specialty) {
         return surveyRepository.findBySpecialty(specialty);
     }
 
-    // Method to get survey details by preferences
-    public Survey getSurveyByPreferences(String preferences) {
+    // Get survey by Preferences
+    public Survey findByPreferences(String preferences) {
         return surveyRepository.findByPreferences(preferences);
     }
 
-    // Method to get survey details by country
-    public Survey getSurveyByCountry(String country) {
+    // Get survey by Country
+    public Survey findByCountry(String country) {
         return surveyRepository.findByCountry(country);
     }
 
-    // Method to get survey details by region and city
-    public Survey getSurveyByRegionAndCity(String region, String city) {
+    // Get survey by Region and City combination
+    public Survey findByRegionAndCity(String region, String city) {
         return surveyRepository.findByRegionAndCity(region, city);
     }
 
-    // Method to get survey details by manually selecting users
-    public Survey getSurveyByManuallySelectingUsers(String manuallySelectingUsers) {
-        return surveyRepository.findByManuallySelectingUsers(manuallySelectingUsers);
+    // Get survey by manually selecting specific users
+    public Survey findBySelectedUsers(String[] users) {
+        return surveyRepository.findBySelectedUsers(users);
     }
 
-    // Method to get survey details by question title
-    public Survey getSurveyByQuestionTitle(String questionTitle) {
-        return surveyRepository.findByQuestionTitle(questionTitle);
-    }
-
-    // Method to get survey details by answer type
-    public Survey getSurveyByAnswerType(String answerType) {
+    // Get survey by Answer Type
+    public Survey findByAnswerType(String answerType) {
         return surveyRepository.findByAnswerType(answerType);
     }
 
-    // Method to get survey details by rating range
-    public Survey get
+    // Get survey by Rating range
+    public Survey findByRating(int start, int end) {
+        return surveyRepository.findByRating(start, end);
+    }
+
+    // Get all surveys
+    public List<Survey> findAll() {
+        return surveyRepository.findAll();
+    }
+
+}

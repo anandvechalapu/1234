@@ -1,103 +1,106 @@
-SurveyByRatingRange(int ratingRange) {
-        return surveyRepository.findByRatingRange(ratingRange);
-    }
-
-    // Method to delete survey details
-    public void deleteSurvey(long id) {
-        surveyRepository.deleteById(id);
-    }
-}
-
 package com.ctepl.anand.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ctepl.anand.model.Survey;
 import com.ctepl.anand.service.SurveyService;
 
 @RestController
-@RequestMapping("/survey")
 public class SurveyController {
 
     @Autowired
-    private SurveyService surveyService;
+    SurveyService surveyService;
 
-    // Method to save survey details
-    @PostMapping("/save")
-    public void saveSurvey(@RequestBody Survey survey) {
-        surveyService.saveSurvey(survey);
+    // Get survey by id
+    @GetMapping("/survey/{id}")
+    public Survey findById(@PathVariable long id) {
+        return surveyService.findById(id);
     }
 
-    // Method to get all survey details
-    @GetMapping("/all")
-    public List<Survey> getAllSurveys() {
-        return surveyService.getAllSurveys();
+    // Get survey by title
+    @GetMapping("/survey/title")
+    public Survey findByTitle(@RequestParam String title) {
+        return surveyService.findByTitle(title);
     }
 
-    // Method to get survey details by id
-    @GetMapping("/{id}")
-    public Survey getSurveyById(@PathVariable long id) {
-        return surveyService.getSurveyById(id);
+    // Get survey by Domain
+    @GetMapping("/survey/domain")
+    public Survey findByDomain(@RequestParam String domain) {
+        return surveyService.findByDomain(domain);
     }
 
-    // Method to get survey details by domain
-    @GetMapping("/domain/{domain}")
-    public Survey getSurveyByDomain(@PathVariable String domain) {
-        return surveyService.getSurveyByDomain(domain);
+    // Get survey by Status
+    @GetMapping("/survey/status")
+    public Survey findByStatus(@RequestParam String status) {
+        return surveyService.findByStatus(status);
     }
 
-    // Method to get survey details by title
-    @GetMapping("/title/{title}")
-    public Survey getSurveyByTitle(@PathVariable String title) {
-        return surveyService.getSurveyByTitle(title);
+    // Get survey by Survey State
+    @GetMapping("/survey/state")
+    public Survey findBySurveyState(@RequestParam String surveyState) {
+        return surveyService.findBySurveyState(surveyState);
     }
 
-    // Method to get survey details by delay time in seconds
-    @GetMapping("/delayTime/{delayTime}")
-    public Survey getSurveyByDelayTime(@PathVariable int delayTime) {
-        return surveyService.getSurveyByDelayTime(delayTime);
+    // Get survey by Page Name or Location
+    @GetMapping("/survey/page-name-or-location")
+    public Survey findByPageNameOrLocation(@RequestParam String pageNameOrLocation) {
+        return surveyService.findByPageNameOrLocation(pageNameOrLocation);
     }
 
-    // Method to get survey details by status
-    @GetMapping("/status/{status}")
-    public Survey getSurveyByStatus(@PathVariable String status) {
-        return surveyService.getSurveyByStatus(status);
+    // Get survey by Start and End dates
+    @GetMapping("/survey/start-date-or-end-date")
+    public Survey findByStartDateAndEndDate(@RequestParam String startDate, @RequestParam String endDate) {
+        return surveyService.findByStartDateAndEndDate(startDate, endDate);
     }
 
-    // Method to get survey details by survey state
-    @GetMapping("/state/{surveyState}")
-    public Survey getSurveyBySurveyState(@PathVariable String surveyState) {
-        return surveyService.getSurveyBySurveyState(surveyState);
+    // Get survey by Target Users
+    @GetMapping("/survey/target-users")
+    public Survey findByTargetUsers(@RequestParam String targetUsers) {
+        return surveyService.findByTargetUsers(targetUsers);
     }
 
-    // Method to get survey details by page name or location
-    @GetMapping("/pageNameOrLocation/{pageNameOrLocation}")
-    public Survey getSurveyByPageNameOrLocation(@PathVariable String pageNameOrLocation) {
-        return surveyService.getSurveyByPageNameOrLocation(pageNameOrLocation);
+    // Get survey by Specialty
+    @GetMapping("/survey/specialty")
+    public Survey findBySpecialty(@RequestParam String specialty) {
+        return surveyService.findBySpecialty(specialty);
     }
 
-    // Method to get survey details by start date
-    @GetMapping("/startDate/{startDate}")
-    public Survey getSurveyByStartDate(@PathVariable String startDate) {
-        return surveyService.getSurveyByStartDate(startDate);
+    // Get survey by Preferences
+    @GetMapping("/survey/preferences")
+    public Survey findByPreferences(@RequestParam String preferences) {
+        return surveyService.findByPreferences(preferences);
     }
 
-    // Method to get survey details by end date
-    @GetMapping("/endDate/{endDate}")
-    public Survey getSurveyByEndDate(@PathVariable String endDate) {
-        return surveyService.getSurveyByEndDate(endDate);
+    // Get survey by Country
+    @GetMapping("/survey/country")
+    public Survey findByCountry(@RequestParam String country) {
+        return surveyService.findByCountry(country);
     }
 
-    // Method to get survey details by target users
-    @GetMapping("/targetUsers/{targetUsers}")
-    public Survey getSurveyByTargetUsers(@PathVariable String targetUsers) {
-        return surveyService.get
+    // Get survey by Region and City combination
+    @GetMapping("/survey/region-and-city")
+    public Survey findByRegionAndCity(@RequestParam String region, @RequestParam String city) {
+        return surveyService.findByRegionAndCity(region, city);
+    }
+
+    // Get survey by manually selecting specific users
+    @GetMapping("/survey/selected-users")
+    public Survey findBySelectedUsers(@RequestParam String[] users) {
+        return surveyService.findBySelectedUsers(users);
+    }
+
+    // Get survey by Answer Type
+    @GetMapping("/survey/answer-type")
+    public Survey findByAnswerType(@RequestParam String answerType) {
+        return surveyService.findByAnswerType(answerType);
+    }
+
+    // Get survey by Rating range
+    @GetMapping("/survey/rating")
+    public Survey findByRating(@RequestParam int start, @RequestParam int end

@@ -1,6 +1,7 @@
 package com.ctepl.anand.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.ctepl.anand.model.Survey;
@@ -8,61 +9,52 @@ import com.ctepl.anand.model.Survey;
 @Repository
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
 
-    // Method to get survey details by id
+    // Get survey by id
     Survey findById(long id);
 
-    // Method to get survey details by domain
-    Survey findByDomain(String domain);
-
-    // Method to get survey details by title
+    // Get survey by title
     Survey findByTitle(String title);
 
-    // Method to get survey details by delay time in seconds
-    Survey findByDelayTime(int delayTime);
+    // Get survey by Domain
+    Survey findByDomain(String domain);
 
-    // Method to get survey details by status
+    // Get survey by Status
     Survey findByStatus(String status);
 
-    // Method to get survey details by survey state
+    // Get survey by Survey State
     Survey findBySurveyState(String surveyState);
 
-    // Method to get survey details by page name or location
+    // Get survey by Page Name or Location
     Survey findByPageNameOrLocation(String pageNameOrLocation);
 
-    // Method to get survey details by start date
-    Survey findByStartDate(String startDate);
+    // Get survey by Start and End dates
+    Survey findByStartDateAndEndDate(String startDate, String endDate);
 
-    // Method to get survey details by end date
-    Survey findByEndDate(String endDate);
-
-    // Method to get survey details by target users
+    // Get survey by Target Users
     Survey findByTargetUsers(String targetUsers);
 
-    // Method to get survey details by excluding users
-    Survey findByExcludingUsers(String excludingUsers);
-
-    // Method to get survey details by specialty
+    // Get survey by Specialty
     Survey findBySpecialty(String specialty);
 
-    // Method to get survey details by preferences
+    // Get survey by Preferences
     Survey findByPreferences(String preferences);
 
-    // Method to get survey details by country
+    // Get survey by Country
     Survey findByCountry(String country);
 
-    // Method to get survey details by region and city
+    // Get survey by Region and City combination
+    @Query(value = "SELECT * FROM survey WHERE region = ?1 and city = ?2", nativeQuery = true)
     Survey findByRegionAndCity(String region, String city);
 
-    // Method to get survey details by manually selecting users
-    Survey findByManuallySelectingUsers(String manuallySelectingUsers);
+    // Get survey by manually selecting specific users
+    @Query(value = "SELECT * FROM survey WHERE user_id IN ?1", nativeQuery = true)
+    Survey findBySelectedUsers(String[] users);
 
-    // Method to get survey details by question title
-    Survey findByQuestionTitle(String questionTitle);
-
-    // Method to get survey details by answer type
+    // Get survey by Answer Type
     Survey findByAnswerType(String answerType);
 
-    // Method to get survey details by rating range
-    Survey findByRatingRange(int ratingRange);
+    // Get survey by Rating range
+    @Query(value = "SELECT * FROM survey WHERE rating BETWEEN ?1 AND ?2", nativeQuery = true)
+    Survey findByRating(int start, int end);
 
 }
