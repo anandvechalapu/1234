@@ -1,65 +1,68 @@
 package com.ctepl.anand.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.ctepl.anand.model.Survey;
 
+@Repository
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
 
-    @Query("SELECT s FROM Survey s WHERE s.domain = :domain")
-    Survey findByDomain(@Param("domain") String domain);
+    // Method to get survey details by id
+    Survey findById(long id);
 
-    @Query("SELECT s FROM Survey s WHERE s.title = :title")
-    Survey findByTitle(@Param("title") String title);
+    // Method to get survey details by domain
+    Survey findByDomain(String domain);
 
-    @Query("SELECT s FROM Survey s WHERE s.delayTime = :delayTime")
-    Survey findByDelayTime(@Param("delayTime") int delayTime);
+    // Method to get survey details by title
+    Survey findByTitle(String title);
 
-    @Query("SELECT s FROM Survey s WHERE s.status = :status")
-    Survey findByStatus(@Param("status") String status);
+    // Method to get survey details by delay time in seconds
+    Survey findByDelayTime(int delayTime);
 
-    @Query("SELECT s FROM Survey s WHERE s.surveyState = :surveyState")
-    Survey findBySurveyState(@Param("surveyState") String surveyState);
-    
-    @Query("SELECT s FROM Survey s WHERE s.pageName = :pageName")
-    Survey findByPageName(@Param("pageName") String pageName);
+    // Method to get survey details by status
+    Survey findByStatus(String status);
 
-    @Query("SELECT s FROM Survey s WHERE s.startDate = :startDate")
-    Survey findByStartDate(@Param("startDate") String startDate);
+    // Method to get survey details by survey state
+    Survey findBySurveyState(String surveyState);
 
-    @Query("SELECT s FROM Survey s WHERE s.endDate = :endDate")
-    Survey findByEndDate(@Param("endDate") String endDate);
+    // Method to get survey details by page name or location
+    Survey findByPageNameOrLocation(String pageNameOrLocation);
 
-    @Query("SELECT s FROM Survey s WHERE s.targetUsers = :targetUsers")
-    Survey findByTargetUsers(@Param("targetUsers") String targetUsers);
+    // Method to get survey details by start date
+    Survey findByStartDate(String startDate);
 
-    @Query("SELECT s FROM Survey s WHERE s.specialty = :specialty")
-    Survey findBySpecialty(@Param("specialty") String specialty);
+    // Method to get survey details by end date
+    Survey findByEndDate(String endDate);
 
-    @Query("SELECT s FROM Survey s WHERE s.preferences = :preferences")
-    Survey findByPreferences(@Param("preferences") String preferences);
+    // Method to get survey details by target users
+    Survey findByTargetUsers(String targetUsers);
 
-    @Query("SELECT s FROM Survey s WHERE s.country = :country")
-    Survey findByCountry(@Param("country") String country);
+    // Method to get survey details by excluding users
+    Survey findByExcludingUsers(String excludingUsers);
 
-    @Query("SELECT s FROM Survey s WHERE s.region = :region")
-    Survey findByRegion(@Param("region") String region);
+    // Method to get survey details by specialty
+    Survey findBySpecialty(String specialty);
 
-    @Query("SELECT s FROM Survey s WHERE s.city = :city")
-    Survey findByCity(@Param("city") String city);
+    // Method to get survey details by preferences
+    Survey findByPreferences(String preferences);
 
-    @Query("SELECT s FROM Survey s WHERE s.userList = :userList")
-    Survey findByUserList(@Param("userList") String userList);
+    // Method to get survey details by country
+    Survey findByCountry(String country);
 
-    @Query("SELECT s FROM Survey s WHERE s.questionTitle = :questionTitle")
-    Survey findByQuestionTitle(@Param("questionTitle") String questionTitle);
+    // Method to get survey details by region and city
+    Survey findByRegionAndCity(String region, String city);
 
-    @Query("SELECT s FROM Survey s WHERE s.answerType = :answerType")
-    Survey findByAnswerType(@Param("answerType") String answerType);
+    // Method to get survey details by manually selecting users
+    Survey findByManuallySelectingUsers(String manuallySelectingUsers);
 
-    @Query("SELECT s FROM Survey s WHERE s.ratingRange = :ratingRange")
-    Survey findByRatingRange(@Param("ratingRange") int ratingRange);
+    // Method to get survey details by question title
+    Survey findByQuestionTitle(String questionTitle);
+
+    // Method to get survey details by answer type
+    Survey findByAnswerType(String answerType);
+
+    // Method to get survey details by rating range
+    Survey findByRatingRange(int ratingRange);
 
 }
