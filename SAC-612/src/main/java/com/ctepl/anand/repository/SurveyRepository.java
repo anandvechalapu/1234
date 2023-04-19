@@ -1,0 +1,1 @@
+package com.ctepl.anand.repository;import org.springframework.data.jpa.repository.JpaRepository;import com.ctepl.anand.model.Survey;public interface SurveyRepository extends JpaRepository<Survey, Long>{ // Methods to query the survey table based on the acceptance criteria }
