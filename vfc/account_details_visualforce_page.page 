@@ -1,0 +1,18 @@
+Visualforce Page:
+<apex:page controller="AccountController" action="{!retrieveUserAccountDetails}">
+   <apex:form >
+      <apex:pageBlock title="Please enter the name, email address, or phone number of the account holder">
+         <apex:inputText value="{!searchTerm}" />
+         <apex:commandButton value="Search" action="{!retrieveUserAccountDetails}" />
+      </apex:pageBlock>
+      <apex:pageBlock title="Account Details">
+         <apex:outputText value="Account Number: {!userAccount.accountNumber}" />
+         <apex:inputField value="{!userAccount.name}" />
+         <apex:inputField value="{!userAccount.email}" />
+         <apex:inputField value="{!userAccount.phoneNumber}" />
+         <apex:commandButton value="Update" action="{!updateUserAccount}" />
+         <apex:commandButton value="Logout" action="{!logout}" />
+      </apex:pageBlock>
+   </apex:form>
+   <apex:pageMessages />
+</apex:page>
