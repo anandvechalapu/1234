@@ -1,0 +1,58 @@
+CSS:
+.setup-buyer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    font-family: sans-serif;
+    background-color: #F0F0F0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.setup-buyer-menu .header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.setup-buyer-menu .functionality {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.setup-buyer-menu .functionality > * {
+    margin-right: 10px;
+}
+
+.setup-buyer-menu .functionality-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.setup-buyer-menu .functionality-icon {
+    font-size: 14px;
+    color: #6E6E6E;
+}
+
+.setup-buyer-menu .functionality-action {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.setup-buyer-menu .functionality-action:hover {
+    color: #999;
+    cursor: pointer;
+}
+
+.setup-buyer-menu .functionality-action:active {
+    color: #000;
+}
+
+.setup-buyer-menu .functionality-action-enabled {
+    color: #000;
+    cursor: pointer;
+}
