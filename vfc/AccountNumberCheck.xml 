@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Visualforce>
+	<Page>
+		<ApexController>AccountController</ApexController>
+		<ApexClass>AccountRepository</ApexClass>
+		<ApexClass>AccountService</ApexClass>
+		<Label>Account Number Check</Label>
+		<Description>Retrieve and view account number details.</Description>
+
+		<!-- Account Controller -->
+		<Apex:PageBlock>
+			<Apex:PageBlockSection>
+				<Apex:InputField value="{!Account.Name}" label="Name" />
+				<Apex:InputField value="{!Account.Email}" label="Email" />
+				<Apex:InputField value="{!Account.Phone}" label="Phone" />
+			</Apex:PageBlockSection>
+			<Apex:PageBlockButtons>
+				<Apex:CommandButton action="{!GetAccount}" value="Submit" />
+			</Apex:PageBlockButtons>
+		</Apex:PageBlock>
+
+		<!-- Account Details -->
+		<Apex:PageBlock rendered="{!ShowAccountDetails}">
+			<Apex:PageBlockSection>
+				<Apex:InputField value="{!Account.AccountNumber}" label="Account Number" />
+			</Apex:PageBlockSection>
+			<Apex:PageBlockButtons>
+				<Apex:CommandButton action="{!UpdateAccount}" value="Save Changes" />
+				<Apex:CommandButton action="{!Logout}" value="Logout" />
+			</Apex:PageBlockButtons>
+		</Apex:PageBlock>
+
+		<!-- Error Handling -->
+		<Apex:PageMessages />
+	</Page>
+</Visualforce>
