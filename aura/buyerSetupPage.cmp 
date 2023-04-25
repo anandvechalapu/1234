@@ -1,0 +1,32 @@
+<aura:component>
+    <aura:attribute name="newBuyer" type="Object" description="Holds the details for the new buyer"/>
+    <aura:attribute name="buyerList" type="List" description="Holds the list of existing buyers"/>
+    <aura:attribute name="searchInput" type="String" description="Holds the search input for buyer"/>
+	
+	<!-- Handler for searching buyers -->
+	<aura:handler name="search" event="c:SearchEvent" action="{!c.searchBuyers}"/>
+	
+	<!-- Handler for loading all buyers -->
+	<aura:handler name="loadAll" event="c:LoadAllEvent" action="{!c.loadAllBuyers}"/>
+	
+	<!-- Handler for adding a new buyer -->
+    <aura:handler name="addNew" event="c:AddNewBuyerEvent" action="{!c.addNewBuyer}"/>
+	
+	<!-- Handler for editing an existing buyer -->
+    <aura:handler name="edit" event="c:EditBuyerEvent" action="{!c.editBuyer}"/>
+	
+	<!-- Handler for saving a buyer -->
+    <aura:handler name="save" event="c:SaveBuyerEvent" action="{!c.saveBuyer}"/>
+	
+	<!-- Handler for changing a buyer's password or other confidential information -->
+    <aura:handler name="changeConfidentialInfo" event="c:ChangeConfidentialInfoEvent" action="{!c.changeConfidentialInfo}"/>
+	
+	<!-- Handler for communicating with a customer through chat or call -->
+    <aura:handler name="chatOrCall" event="c:ChatOrCallEvent" action="{!c.chatOrCall}"/>
+	
+	<!-- Handler for sorting and filtering buyer data -->
+    <aura:handler name="sortFilter" event="c:SortFilterEvent" action="{!c.sortFilterBuyers}"/>
+	
+	<!-- Render the buyer setup page -->
+	<c:BuyerSetupPage />
+</aura:component>
