@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aura:component>
+  
+  <aura:attribute name="title" type="String" />
+  <aura:attribute name="firstName" type="String" />
+  <aura:attribute name="lastName" type="String" />
+  <aura:attribute name="loginId" type="String" />
+  <aura:attribute name="email" type="String" />
+  <aura:attribute name="password" type="String" />
+  <aura:attribute name="confirmPassword" type="String" />
+  <aura:attribute name="phoneNumber" type="String" />
+  <aura:attribute name="mobileNumber" type="String" />
+  <aura:attribute name="newsSpreadAccountNumber" type="String" />
+  <aura:attribute name="retailerName" type="String" />
+  <aura:attribute name="address1" type="String" />
+  <aura:attribute name="address2" type="String" />
+  <aura:attribute name="address3" type="String" />
+  <aura:attribute name="accountNumber" type="String" />
+  <aura:attribute name="buyerName" type="String" />
+  
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  
+  <div class="slds-grid slds-wrap">
+    <div class="slds-col slds-size_1-of-2">
+      <lightning:card title="Setup Buyer Menu">
+        <div class="slds-p-horizontal_small">
+          
+          <lightning:input label="Title" value="{!v.title}" />
+          <lightning:input label="First Name" value="{!v.firstName}" />
+          <lightning:input label="Last Name" value="{!v.lastName}" />
+          <lightning:input label="Login ID" value="{!v.loginId}" />
+          <lightning:input label="Email Address" value="{!v.email}" />
+          <lightning:input label="Password" value="{!v.password}" type="password" />
+          <lightning:input label="Confirm Password" value="{!v.confirmPassword}" type="password" />
+          <lightning:input label="Phone Number" value="{!v.phoneNumber}" />
+          <lightning:input label="Mobile Number" value="{!v.mobileNumber}" />
+          <lightning:input label="News Spread Account Number" value="{!v.newsSpreadAccountNumber}" />
+          <lightning:input label="Retailer Name" value="{!v.retailerName}" />
+          <lightning:input label="Address 1" value="{!v.address1}" />
+          <lightning:input label="Address 2" value="{!v.address2}" />
+          <lightning:input label="Address 3" value="{!v.address3}" />
+          
+          <lightning:button label="Save" onclick="{! c.handleSave }" />
+          <lightning:button label="Cancel" onclick="{! c.handleCancel }" />
+          
+        </div>
+      </lightning:card>
+    </div>
+    <div class="slds-col slds-size_1-of-2">
+      <lightning:card title="Search Buyer">
+        <div class="slds-p-horizontal_small">
+          <lightning:input label="Account Number" value="{!v.accountNumber}" />
+          <lightning:button label="Load All Buyer" onclick="{! c.handleLoadAllBuyer }" />
+          <lightning:button label="Search" onclick="{! c.handleSearch }" />
+        </div>
+      </lightning:card>
+      <lightning:card title="Buyer List">
+        <div class="slds-p-horizontal_small">
+          <lightning:datatable data="{! v.data }" columns="{! v.columns }" keyField="id" />
+        </div>
+      </lightning:card>
+      <lightning:button label="Chat/Call" onclick="{! c.handleChatCall }" />
+    </
