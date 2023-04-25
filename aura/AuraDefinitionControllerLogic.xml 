@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinition>
+    <component>
+        <controller>
+            <constructor>
+                <![CDATA[
+                    // Logic to initialize the component
+                ]]>
+            </constructor>
+            <![CDATA[
+                // Logic to handle the setup buyer menu click
+                handleSetupBuyerMenuClick() {
+                    // Logic to show all functionalities on CSA setup buyer menu
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the add/edit buyer functionality
+                handleAddEditBuyerFunctionality(title, firstName, lastName, loginID, email, password, confirmPassword, phoneNumber, mobileNumber, newsSpreadAccountNumber, retailerName, address1, address2, address3) {
+                    // Logic to validate the entered details and display appropriate error messages when there are validation errors
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the account number click
+                handleAccountNumberClick() {
+                    // Logic to show all functionalities on account number
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the load all buyers click
+                handleLoadAllBuyersClick() {
+                    // Logic to show all buyers
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the search click
+                handleSearchClick() {
+                    // Logic to search for buyers by account number
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the change password functionality
+                handleChangePasswordFunctionality(accountOwner) {
+                    // Logic to validate the account owner before allowing any password or confidential information changes
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the buyer menu click
+                handleBuyerMenuClick() {
+                    // Logic to show all functionalities on buyer menu
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the search in all columns click
+                handleSearchInAllColumnsClick() {
+                    // Logic to search in all columns
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the pagination
+                handlePagination() {
+                    // Logic to show minimum 25 or more entries of all functionalities
+                }
+            ]]>
+            <![CDATA[
+                // Logic to handle the chat/call functionality
+                handleChatCallFunctionality() {
+                    // Logic to provide a user-friendly and secure communication platform
+                }
+            ]]>
+        </controller>
+        <view>
+            <!-- UI code to render the component -->
+        </view>
+    </component>
+</AuraDefinition>
