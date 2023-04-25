@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VF>
+  <page>
+    <controller>AccountController</controller>
+    <page>AccountDetails</page>
+    <url>/accountDetails</url>
+    <get>
+      <url>/getAccountDetails</url>
+      <params>
+        <name>name</name>
+        <email>email</email>
+        <phone>phone</phone>
+      </params>
+      <result>
+        <accountNumber>accountNumber</accountNumber>
+        <name>name</name>
+        <email>email</email>
+        <phone>phone</phone>
+      </result>
+    </get>
+    <update>
+      <url>/updateAccountDetails</url>
+      <params>
+        <name>name</name>
+        <email>email</email>
+        <phone>phone</phone>
+      </params>
+      <result>
+        <message>Account details updated successfully.</message>
+      </result>
+    </update>
+    <logout>
+      <url>/logout</url>
+      <result>
+        <message>User logged out successfully.</message>
+      </result>
+    </logout>
+    <error>
+      <result>
+        <message>An unexpected error occurred. Please try again later.</message>
+      </result>
+    </error>
+  </page>
+</VF>
