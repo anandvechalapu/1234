@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinition>
+  <component>
+    <aura:component>
+      <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+      <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_2-of-12">
+          <lightning:buttonGroup aura:id="functionality"
+              variant="brand"
+              type="radio"
+              name="functionality"
+              options="{! v.functionalityOptions }" 
+              onchange="{! c.handleFunctionalityChange }"/>
+        </div>
+        <div class="slds-col slds-size_10-of-12">
+          <aura:if isTrue="{!v.showAddNewBuyer}">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Title"
+                    aura:id="title"
+                    name="title"
+                    value="{!v.title}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="First Name"
+                    aura:id="firstName"
+                    name="firstName"
+                    value="{!v.firstName}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Last Name"
+                    aura:id="lastName"
+                    name="lastName"
+                    value="{!v.lastName}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Login ID"
+                    aura:id="loginId"
+                    name="loginId"
+                    value="{!v.loginId}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Email Address"
+                    aura:id="emailAddress"
+                    name="emailAddress"
+                    value="{!v.emailAddress}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Password"
+                    aura:id="password"
+                    name="password"
+                    type="password"
+                    value="{!v.password}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Confirm Password"
+                    aura:id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    value="{!v.confirmPassword}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Phone Number"
+                    aura:id="phoneNumber"
+                    name="phoneNumber"
+                    value="{!v.phoneNumber}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Mobile Number"
+                    aura:id="mobileNumber"
+                    name="mobileNumber"
+                    value="{!v.mobileNumber}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="News Spread Account Number"
+                    aura:id="newspreadAccountNumber"
+                    name="newspreadAccountNumber"
+                    value="{!v.newspreadAccountNumber}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
+                <lightning:input label="Retailer Name"
+                    aura:id="retailerName"
+                    name="retailerName"
+                    value="{!v.retailerName}"/>
+              </div>
+              <div class="slds-col slds-size_4-of-12">
