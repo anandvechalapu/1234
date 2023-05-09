@@ -1,0 +1,61 @@
+<apex:page controller="OpportunityController" > 
+ 
+<apex:form > 
+ 
+  <apex:pageBlock title="Open Opportunities" > 
+ 
+    <apex:dataTable value="{!openOpportunities}" var="o" width="100%" cellpadding="8" rowClasses="odd,even" rowStyleClass="rowClass" > 
+ 
+      <apex:column headerValue="Opportunity Name"> 
+        <apex:outputLink value="/{!o.Id}" >{!o.Name}</apex:outputLink> 
+      </apex:column> 
+ 
+      <apex:column headerValue="Owner Name"> 
+        <apex:outputField value="{!o.Owner.Name}" /> 
+      </apex:column> 
+ 
+      <apex:column headerValue="Stage"> 
+        <apex:outputField value="{!o.StageName}" /> 
+      </apex:column> 
+ 
+      <apex:column headerValue="Amount"> 
+        <apex:outputField value="{!o.Amount}" /> 
+      </apex:column> 
+ 
+      <apex:column headerValue="Closing Date"> 
+        <apex:outputField value="{!o.CloseDate}" /> 
+      </apex:column> 
+ 
+      <apex:facet name="footer"> 
+        <apex:commandButton action="{!searchOpportunities}" value="Search" /> 
+        <apex:commandButton action="{!sortOpportunities}" value="Sort" /> 
+        <apex:commandButton action="{!paginateOpportunities}" value="Paginate" /> 
+      </apex:facet> 
+ 
+    </apex:dataTable> 
+ 
+  </apex:pageBlock> 
+ 
+</apex:form> 
+ 
+</apex:page>
+
+public class OpportunityController { 
+   public list<Opportunity> openOpportunities {get; set;} 
+ 
+   public OpportunityController() { 
+      openOpportunities = [SELECT Id, Name, Owner.Name, StageName, Amount, CloseDate FROM Opportunity WHERE IsClosed = false]; 
+   } 
+ 
+   public void searchOpportunities() { 
+      // Code to search Opportunities 
+   } 
+ 
+   public void sortOpportunities() { 
+      // Code to sort Opportunities 
+   } 
+ 
+   public void paginateOpportunities() { 
+      // Code to paginate Opportunities 
+   } 
+}

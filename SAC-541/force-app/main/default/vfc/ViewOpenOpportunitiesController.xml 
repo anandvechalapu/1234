@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>View All Open Opportunities</label>
+    <components>
+        <aura:component>
+            <lightning:datatable
+                data="{!v.data}"
+                columns="{!v.columns}"
+                keyField="id"
+                showRowNumberColumn="true"
+                defaultSortDirection="asc"
+                sortedBy="{!v.sortedBy}"
+                sortedDirection="{!v.sortedDirection}"
+                onsort="{!c.handleSort}"
+                onrowaction="{!c.onRowAction}"
+                enableInfiniteLoading="true"
+                loadMoreOffset="2"
+            />
+        </aura:component>
+    </components>
+</Page>
